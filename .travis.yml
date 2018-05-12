@@ -13,7 +13,7 @@ install:
     - | 
       (
           cd .libs/libffcall &&
-          mkdir ./build
+          mkdir ./build &&
           chmod +x ./build.sh && 
           ./build.sh ./build ./repo --host=i486-unknown-linux  CC="gcc -m32" CXX="g++ -m32"
       )
