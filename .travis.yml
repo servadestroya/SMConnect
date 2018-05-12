@@ -14,7 +14,7 @@ install:
       (
           cd .libs/libffcall &&
           chmod +x ./build.sh && 
-          ./build.sh ./build ./libffcall --host=i486-unknown-linux  CC="gcc -m32" CXX="g++ -m32"
+          ./build.sh ./build ./repo --host=i486-unknown-linux  CC="gcc -m32" CXX="g++ -m32"
       )
 
 script: 
