@@ -10,13 +10,21 @@ addons:
         - gcc-multilib
 
 install:
+    - TR_LIBFFCALL_DIR="./.libs/libffcall"
+    - TR_LIBFFCALL_BUILD_DIR="$TR_LIBFFCALL_DIR/build"
     - | 
       (
-          cd .libs/libffcall &&
-          mkdir ./build &&
-          chmod +x ./build.sh && 
-          ./build.sh ./build ./repo --host=i486-unknown-linux  CC="gcc -m32" CXX="g++ -m32"
+          cd "$TR_LIBFFCALL_DIR" &&
+          mkdir "$TR_LIBFFCALL_BUILD_DIR" &&
+          chmod +x "$TR_LIBFFCALL_DIR/build.sh" &&
+          "$TR_LIBFFCALL_DIR/build.sh" "$TR_LIBFFCALL_BUILD_DIR" "TR_LIBFFCALL_DIR/repo" --host=i486-unknown-linux  CC="gcc -m32" CXX="g++ -m32"
       )
+
+    - TR_HL2SDK_ROOT="../hl2sdk" && mkdir "$TR_HL2SDK_ROOT"
+    - |
+      for sdk in ( csgo hl2dm nucleardawn l4d2 dods l4d css tf2 insurgency sdk2013 doi ); do
+          git checkout "https://github.com/alliedmodders/hl2sdk" -b "$sdk" "$TR_HL2SDK_ROOT/hl2sdk-$sdk"
+      done
 
 script: 
     - exit 0
