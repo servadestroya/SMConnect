@@ -18,6 +18,7 @@ install:
           chmod +x "$TR_LIBFFCALL_DIR/build.sh" &&
           "$TR_LIBFFCALL_DIR/build.sh" "$TR_LIBFFCALL_BUILD_DIR" "$TR_LIBFFCALL_DIR/repo" --host=i486-unknown-linux  CC="gcc -m32" CXX="g++ -m32"
       )
+    - TR_LIBFFCALL_BIN_DIR="$TR_LIBFFCALL_BUILD_DIR/libffcall-$(cat "$TR_LIBFFCALL_DIR/repo/VERSION")"
 
     - TR_HL2SDK_ROOT="../hl2sdk" && mkdir "$TR_HL2SDK_ROOT"
       # Cloning is rather slow for each branch, cloning from a local mirror should help
@@ -34,5 +35,11 @@ install:
     - ( cd "$TR_TOOLS_AMBUILD_DIR" && python setup.py install --user )
 
 script: 
-    - exit 0
+    - TR_BUILD_DIR="./build"; mkdir "$TR_BUILD_DIR"
+    - |
+      (
+          cd "$TR_BUILD_DIR"
+          python ../configure.py --sm-path ../.libs/sourcemod/ --mms-path ../.libs/mmsource/ --libffcall-path "$TR_LIBFFCALL_BIN_DIR" --hl2sdk-root "$TR_HL2SDK_ROOT" --sdks=present
+          ambuild
+      )
 
