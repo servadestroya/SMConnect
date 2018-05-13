@@ -42,7 +42,7 @@ script:
     - |
       (
           cd "$TR_BUILD_DIR" &&
-          python "$TR_REPO_DIR/configure.py" --sm-path "$TR_LIBS_DIR/sourcemod/" --mms-path "$$TR_LIBS_DIR/mmsource/" --libffcall-path "$TR_LIBFFCALL_BIN_DIR" --hl2sdk-root "$TR_HL2SDK_ROOT" --sdks=present &&
+          python "$TR_REPO_DIR/configure.py" --sm-path "$TR_LIBS_DIR/sourcemod/" --mms-path "$TR_LIBS_DIR/mmsource/" --libffcall-path "$TR_LIBFFCALL_BIN_DIR" --hl2sdk-root "$TR_HL2SDK_ROOT" --sdks=present &&
           ambuild
       )
 
