@@ -23,7 +23,7 @@ install:
     - TR_HL2SDK_SDKS=( csgo hl2dm nucleardawn l4d2 dods l4d css tf2 insurgency sdk2013 doi )
     - |
       for sdk in "${TR_HL2SDK_SDKS[@]}"; do
-          git checkout "https://github.com/alliedmodders/hl2sdk" -b "$sdk" "$TR_HL2SDK_ROOT/hl2sdk-$sdk"
+          git clone "https://github.com/alliedmodders/hl2sdk" -b "$sdk" "$TR_HL2SDK_ROOT/hl2sdk-$sdk"
       done
 
 script: 
