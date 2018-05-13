@@ -38,8 +38,8 @@ install:
     - ( cd "$TR_TOOLS_AMBUILD_DIR" && python setup.py install --user )
 
 script: 
-    - TR_BUILD_DIR="$TR_REPO_DIR/build"; mkdir "$TR_BUILD_DIR" &&
     - |
+      TR_BUILD_DIR="$TR_REPO_DIR/build"; mkdir "$TR_BUILD_DIR" &&
       (
           cd "$TR_BUILD_DIR" &&
           python "$TR_REPO_DIR/configure.py" --sm-path "$TR_LIBS_DIR/sourcemod/" --mms-path "$TR_LIBS_DIR/mmsource/" --libffcall-path "$TR_LIBFFCALL_BIN_DIR" --hl2sdk-root "$TR_HL2SDK_ROOT" --sdks=present &&
