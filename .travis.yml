@@ -16,7 +16,7 @@ install:
       (
           mkdir "$TR_LIBFFCALL_BUILD_DIR" &&
           chmod +x "$TR_LIBFFCALL_DIR/build.sh" &&
-          "$TR_LIBFFCALL_DIR/build.sh" "$TR_LIBFFCALL_BUILD_DIR" "TR_LIBFFCALL_DIR/repo" --host=i486-unknown-linux  CC="gcc -m32" CXX="g++ -m32"
+          "$TR_LIBFFCALL_DIR/build.sh" "$TR_LIBFFCALL_BUILD_DIR" "$TR_LIBFFCALL_DIR/repo" --host=i486-unknown-linux  CC="gcc -m32" CXX="g++ -m32"
       )
 
     - TR_HL2SDK_ROOT="../hl2sdk" && mkdir "$TR_HL2SDK_ROOT"
