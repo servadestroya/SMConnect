@@ -8,6 +8,7 @@ addons:
     apt:
         packages:
         - gcc-multilib
+        - lib32stdc++
 
 install:
     - TR_REPO_DIR="$(pwd)"
