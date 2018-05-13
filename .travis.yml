@@ -29,6 +29,10 @@ install:
           git clone "$TR_HL2SDK_PROXY" -b "$sdk" "$TR_HL2SDK_ROOT/hl2sdk-$sdk"
       done
 
+    - TR_TOOLS_AMBUILD_DIR="../ambuild"
+    - git clone "https://github.com/alliedmodders/ambuild" "$TR_TOOLS_AMBUILD_DIR"
+    - ( cd "$TR_TOOLS_AMBUILD_DIR" && python setup.py install --user )
+
 script: 
     - exit 0
 
