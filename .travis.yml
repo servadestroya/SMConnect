@@ -21,7 +21,8 @@ install:
 
     - TR_HL2SDK_ROOT="../hl2sdk" && mkdir "$TR_HL2SDK_ROOT"
       # Cloning is rather slow for each branch, cloning from a local mirror should help
-    - TR_HL2SDK_PROXY="$TR_HL2SDK_ROOT/proxy"; git clone --mirror "https://github.com/alliedmodders/hl2sdk"
+    - TR_HL2SDK_PROXY="$TR_HL2SDK_ROOT/proxy"
+    - git clone --mirror "https://github.com/alliedmodders/hl2sdk" "$TR_HL2SDK_PROXY"
     - TR_HL2SDK_SDKS=( csgo hl2dm nucleardawn l4d2 dods l4d css tf2 insurgency sdk2013 doi )
     - |
       for sdk in "${TR_HL2SDK_SDKS[@]}"; do
